@@ -36,6 +36,7 @@ f). FriendListAdapter确定GridView的列表数目
           onKey方法主要判断，输入的是不是KEYCODE_DEL键
        .紧接着，回到addTextChangedListener的afterTextChanged方法：
           afterTextChanged方法主要判断：当搜索框内容不为空时，mSearchResultLayout(搜索内容)显示出来。调用fragment搜索startSearch。
+       .mSearchResultLayout是搜索后的列表，mListPanel是搜索前的列表。
   .如何去除DeviceDeleteFriendChooserActivity中的checkbox？
     在getView中将holder.checkBox设置隐藏。
   .二维码界面在哪？
@@ -49,8 +50,23 @@ f). FriendListAdapter确定GridView的列表数目
   .initUI方法，初始化title和listview
 
 
+7. 准备使用群好友的页面
+   .troop_owner_manager2--"群主、管理员"
+   .TroopMemberListActivity利用了troop_owner_manager2
+   .SearchTextWatcher利用了afterTextChanged方法
+   .searchEditText利用了SearchTextWatcher这个监听
+   .searchEditText定义：searchEditText = (EditText) mSearchDialog.findViewById(R.id.xxx);
+   .mSearchDialog使用了search_layout.xml
+   .searchList是搜索的最终结果,是个listview。它使用的适配器：searchList.setAdapter(mSearchResultAdapter)
+   .mSearchResultAdapter使用了SearchResultAdapter
+   .
+
+
 6.目前改动的文件
 qb_opensdk_smart_hardware_share_setting.xml
 SmartHardwareActivity.java
 DeviceAllShareFriendActivity.java
 device_select_member_character_divided_listview.xml
+
+
+明天研究FriendChooser
