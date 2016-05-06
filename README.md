@@ -67,6 +67,21 @@ qb_opensdk_smart_hardware_share_setting.xml
 SmartHardwareActivity.java
 DeviceAllShareFriendActivity.java
 device_select_member_character_divided_listview.xml
+DeviceDeleteFriendChooserActivity.java
 
 
 明天研究FriendChooser
+ .mSearchEditText是搜索框，使用SearchTextWatcher监听
+  
+  
+  
+SmartHardwareActivity.java中的getDeviceUsersList方法，其中
+SmartDeviceUtil.postCgiProxy..没有获取到Friend.pyAll和Friend.pyFirst，即拼音。
+
+研究SelectMemberActivity.java
+。isResultListContainFriend判断mResultList中是否包含当前的Item，不包含的话在mResultList中添加这条记录。
+。进入adjustGridView改变gridview
+  。进入adjustSearchEditText该表edittext
+  。发消息refreshGridView给mHandler
+。进入setupDoneBtn，设置RightBtn
+。
